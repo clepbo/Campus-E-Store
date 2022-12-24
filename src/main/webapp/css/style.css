@@ -402,11 +402,13 @@ ol {
   display: inline-block;
 }
 
+
 .header__top__right__auth span {
   display: block;
   font-size: 14px;
   color: #1c1c1c;
   list-style: none;
+  cursor: pointer;
 }
 
 .header__top__right__auth span i {
@@ -547,13 +549,14 @@ ol {
 
 .header__cart .header__cart__price {
   background: #7fad39;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   padding: 10px 20px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
-.header__cart .header__cart__price a {
+.header__cart .header__cart__price span {
   color: #fff;
   font-weight: 700;
   text-decoration: none;
