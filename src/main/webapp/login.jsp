@@ -41,7 +41,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css" type="text/css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/signup.css"
+	href="${pageContext.request.contextPath}/css/login-mobile.css"
 	type="text/css" />
 
 <link rel="stylesheet"
@@ -88,7 +88,7 @@
 			<div class="switch_circle switch_circle-t"></div>
 
 			<div class="switch_container" id="switch-c1">
-				<a href="#" class="logo_link"> <img src="../img/logo.png" alt="" />
+				<a href="#" class="logo_link"> <img src="img/logo.png" alt="" />
 				</a>
 				<h2 class="switch_title title click" id="click-me">Welcome Back
 					!</h2>
@@ -98,7 +98,7 @@
 			</div>
 
 			<div class="switch_container is-hidden" id="switch-c2">
-				<a href="#" class="logo_link"> <img src="../img/logo.png" alt="" />
+				<a href="#" class="logo_link"> <img src="img/logo.png" alt="" />
 				</a>
 				<h2 class="switch_title title">Hello Friend !</h2>
 				<p class="switch_description description">Enter your personal

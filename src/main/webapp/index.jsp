@@ -29,6 +29,69 @@
     <link rel="stylesheet"href="${pageContext.request.contextPath}/css/signup.css"type="text/css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* LOGIN/SIGN MODAL, MOBILE & LARGE SCREEN RESPONSIVENESS */
+
+/* Medium Device = 1200px */
+@media only screen and (min-width: 1200px){
+  .main {
+    transform: scale(1);
+    left: 18%; 
+    margin-top: -200px;
+  }
+}
+/* Tablet Device = 768px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main {
+    margin-top: -200px;
+    left: 0;
+    transform: scale(0.79);
+  }
+}
+/* Wide Mobile = 480px */
+@media only screen and (max-width: 767px) {
+  .main {
+    transform: scale(0.69);
+    margin-top: -200px;
+    /* top: -10%; */
+    left: -17%;
+    
+  }
+}
+
+/* Small Device > 320px */
+@media only screen and (max-width: 479px) {
+  .main {
+    transform: scale(0.45);
+    margin-top: -200px;
+    /* top: -10%; */
+    left: -52%;
+    
+  }
+}
+/* Small Device = 320px */
+@media only screen and (max-width: 360px) {
+  .main {
+    transform: scale(0.43);
+    margin-top: -200px;
+    /* top: -10%; */
+    left: -60%;
+    
+  }
+}
+
+.header__top__right__auth, .header__cart__price{
+	cursor: pointer;
+	transition: transform 300ms ease;
+}
+.header__top__right__auth:hover, .header__cart__price:hover{
+	transform: scale(1.08);
+}
+.header__top__right__auth:hover span{
+	color: #7fad39;
+}
+</style>
 </head>
 <body>
 
@@ -41,7 +104,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
       <div class="humberger__menu__logo">
-        <a href="#"><img src="img/logo.png" alt="" /></a>
+        <a href="#"><img src="./img/logo.png" alt="" /></a>
       </div>
       
       <div class="humberger__menu__widget">
@@ -835,18 +898,19 @@
       </div>
     </footer>
 </div>
-    
+        <!-- Footer Section End -->
     <div class="main">
 		<!-- SIGN UP SECTION -->
 		<div class="modal-container a-container" id="a-container">
-			<form action="" class="modal-form" id="a-form">
+			<form action="SaveUserServlet" class="modal-form" id="a-form">
 			<div class="close-modal" onclick="signupToggle()">Close</div>
 				<h2 class="form-title title">Create Account</h2>
 				<div class="form_icons"></div>
-				<span class="form_span">or use email for registration</span> <input
-					type="text" class="form_input" placeholder="Name" required /> <input
-					type="email" class="form_input" placeholder="Email" required /> <input
-					type="password" class="form_input" placeholder="Password" required />
+				<span class="form_span">or use email for registration</span> 
+				<input type="text" class="form_input" placeholder="Name" required name="name" /> 
+				<input type="email" class="form_input" placeholder="Email" required name="email"/> 
+				<input type="text" class="form_input" placeholder="Student ID Number" required  name="student_id"/>
+				<input type="password" class="form_input" placeholder="Password" required name="password"/>
 				<button type="submit" class="form_button button submit">
 					SIGN UP</button>
 			</form>
@@ -854,13 +918,13 @@
 		<!-- login section -->
 		<div class="modal-container b-container" id="b-container">
 		
-			<form action="" class="modal-form" id="b-form">
+			<form action="AuthenticateServlet" class="modal-form" id="b-form">
 			<div class="close-modal" onclick="signupToggle()">Close</div>
 				<h2 class="form_title title">Sign in to dashboard</h2>
 				<div class="form_icons"></div>
-				<span class="form_span">or use your email account</span> <input
-					type="email" class="form_input" placeholder="Email" required /> <input
-					type="password" class="form_input" placeholder="Password" required />
+				<span class="form_span">or use your email account</span> 
+				<input type="email" class="form_input" placeholder="Email" required name="username"/> 
+				<input	type="password" class="form_input" placeholder="Password" required name="password"/>
 				<a href="#" class="form_link">Forgot your password?</a>
 				<button type="submit" class="form_button button submit">
 					SIGN IN</button>
@@ -872,7 +936,7 @@
 			<div class="switch_circle switch_circle-t"></div>
 
 			<div class="switch_container" id="switch-c1">
-				<a href="#" class="logo_link"> <img src="../img/logo.png" alt="" />
+				<a href="#" class="logo_link"> <img src="img/logo.png" alt="" />
 				</a>
 				<h2 class="switch_title title click" id="click-me">Welcome Back
 					!</h2>
@@ -882,7 +946,7 @@
 			</div>
 
 			<div class="switch_container is-hidden" id="switch-c2">
-				<a href="#" class="logo_link"> <img src="../img/logo.png" alt="" />
+				<a href="#" class="logo_link"> <img src="img/logo.png" alt="" />
 				</a>
 				<h2 class="switch_title title">Hello Friend !</h2>
 				<p class="switch_description description">Enter your personal
@@ -891,7 +955,7 @@
 			</div>
 		</div>
 	</div>
-    <!-- Footer Section End -->
+
 <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

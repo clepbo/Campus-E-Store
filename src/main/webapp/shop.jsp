@@ -26,8 +26,67 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" />
+    <link rel="stylesheet"href="${pageContext.request.contextPath}/css/signup.css"type="text/css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+
+.header__top__right__auth, .header__cart__price{
+	cursor: pointer;
+	transition: transform 300ms ease;
+}
+.header__top__right__auth:hover, .header__cart__price:hover{
+	transform: scale(1.08);
+}
+.header__top__right__auth:hover span{
+	color: #7fad39;
+}
+
+/* LOGIN/SIGN MODAL, MOBILE & LARGE SCREEN RESPONSIVENESS */
+
+@media (max-width: 1200px) {
+  .main {
+    transform: scale(1);
+    left: 15%;
+    margin-top: -200px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main {
+    transform: scale(0.89);
+     left: 10%;
+    margin-top: -200px;
+  }
+}
+	@media (max-width: 800px) {
+  .main {
+    margin-top: -200px;
+    left: 0;
+    transform: scale(0.79);
+  }
+}
+@media (max-width: 600px) {
+  .main {
+    transform: scale(0.69);
+    margin-top: -200px;
+    /* top: -10%; */
+    left: -17%;
+    
+  }
+}
+
+@media (max-width: 375px) {
+  .main {
+    transform: scale(0.45);
+    margin-top: -200px;
+    /* top: -10%; */
+    left: -56%;
+    
+  }
+}
+</style>
 </head>
 <body>
 
@@ -35,7 +94,7 @@
     <div id="preloder">
       <div class="loader"></div>
     </div>
-
+<div class="body-container" id="body-container">
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
@@ -48,7 +107,7 @@
       <div class="humberger__menu__widget">
        
         <div class="header__top__right__auth">
-          <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+         <span onclick="signupToggle()"><i class="fa-solid fa-user"></i> Login</span>
         </div>
       </div>
       <nav class="humberger__menu__nav mobile-menu">
@@ -97,17 +156,8 @@
                   <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                   <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
                 </div>
-                <!-- <div class="header__top__right__language">
-                    <img src="img/language.png" alt="" />
-                    <div>English</div>
-                    <span class="arrow_carrot-down"></span>
-                    <ul>
-                      <li><a href="#">Spanis</a></li>
-                      <li><a href="#">English</a></li>
-                    </ul>
-                  </div> -->
                 <div class="header__top__right__auth">
-                  <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                  <span onclick="signupToggle()"><i class="fa-solid fa-user"></i> Login</span>
                 </div>
               </div>
             </div>
@@ -135,7 +185,7 @@
           <div class="col-lg-3">
             <div class="header__cart">
               <div class="header__cart__price">
-                <a href="#">Want to Sell?</a>
+                <span onclick="signupToggle()">Want to Sell?</span>
               </div>
             </div>
           </div>
@@ -973,7 +1023,64 @@
         </div>
       </div>
     </footer>
+</div>
     <!-- Footer Section End -->
+    <div class="main">
+		<!-- SIGN UP SECTION -->
+		<div class="modal-container a-container" id="a-container">
+			<form action="SaveUserServlet" class="modal-form" id="a-form">
+			<div class="close-modal" onclick="signupToggle()">Close</div>
+				<h2 class="form-title title">Create Account</h2>
+				<div class="form_icons"></div>
+				<span class="form_span">or use email for registration</span> 
+				<input type="text" class="form_input" placeholder="Name" required name="name" /> 
+				<input type="email" class="form_input" placeholder="Email" required name="email"/> 
+				<input type="text" class="form_input" placeholder="Student ID Number" required  name="student_id"/>
+				<input type="password" class="form_input" placeholder="Password" required name="password"/>
+				<button type="submit" class="form_button button submit">
+					SIGN UP</button>
+			</form>
+		</div>
+		<!-- login section -->
+		<div class="modal-container b-container" id="b-container">
+		
+			<form action="AuthenticateServlet" class="modal-form" id="b-form">
+			<div class="close-modal" onclick="signupToggle()">Close</div>
+				<h2 class="form_title title">Sign in to dashboard</h2>
+				<div class="form_icons"></div>
+				<span class="form_span">or use your email account</span> 
+				<input type="email" class="form_input" placeholder="Email" required name="username"/> 
+				<input	type="password" class="form_input" placeholder="Password" required name="password"/>
+				<a href="#" class="form_link">Forgot your password?</a>
+				<button type="submit" class="form_button button submit">
+					SIGN IN</button>
+			</form>
+		</div>
+
+		<div class="switch" id="switch-cnt">
+			<div class="switch_circle"></div>
+			<div class="switch_circle switch_circle-t"></div>
+
+			<div class="switch_container" id="switch-c1">
+				<a href="#" class="logo_link"> <img src="img/logo.png" alt="" />
+				</a>
+				<h2 class="switch_title title click" id="click-me">Welcome Back
+					!</h2>
+				<p class="switch_description description">To keep connected with
+					us please login with your email & password</p>
+				<button class="switch_button button switch-btn">SIGN IN</button>
+			</div>
+
+			<div class="switch_container is-hidden" id="switch-c2">
+				<a href="#" class="logo_link"> <img src="img/logo.png" alt="" />
+				</a>
+				<h2 class="switch_title title">Hello Friend !</h2>
+				<p class="switch_description description">Enter your personal
+					details and start journey with us</p>
+				<button class="switch_button button switch-btn">SIGN UP</button>
+			</div>
+		</div>
+	</div>
 <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -983,6 +1090,7 @@
     <script src="${pageContext.request.contextPath}/js/mixitup.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/signup.js"></script>
 </body>
 </body>
 </html>
