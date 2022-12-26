@@ -61,10 +61,12 @@
 			<form action="" class="form" id="a-form">
 				<h2 class="form-title title">Create Account</h2>
 				<div class="form_icons"></div>
-				<span class="form_span">or use email for registration</span> <input
-					type="text" class="form_input" placeholder="Name" required /> <input
-					type="email" class="form_input" placeholder="Email" required /> <input
-					type="password" class="form_input" placeholder="Password" required />
+				<span class="form_span">or use email for registration</span> 
+				<input type="text" class="form_input" placeholder="Name" required /> 
+				<input type="email" class="form_input" placeholder="Email" required /> 
+				<input type="text" class="form_input" placeholder="Student ID Number" required name="student_id">
+				<input type="text" class="form_input" placeholder="Business Name/Brand Name" name="brand_name">
+				<input type="password" class="form_input" placeholder="Password" required />
 				<button type="submit" class="form_button button submit">
 					SIGN UP</button>
 			</form>
